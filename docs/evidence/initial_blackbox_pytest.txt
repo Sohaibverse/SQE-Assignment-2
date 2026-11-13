@@ -1,0 +1,483 @@
+.FF..F...FF...FF.......F...F...F.....FF.........F...FFF...F.F.           [100%]
+=================================== FAILURES ===================================
+______________________ test_registration_decision[BB002] _______________________
+
+case_id = 'BB002', kwargs = {'dues': 1}, expected = 'DUES_BLOCK'
+
+    @pytest.mark.parametrize("case_id,kwargs,expected", DECISION_CASES, ids=[x[0] for x in DECISION_CASES])
+    def test_registration_decision(case_id, kwargs, expected):
+        s, c = scenario(**kwargs)
+        before = deepcopy((s, c))
+        if expected.startswith("Invalid"):
+            with pytest.raises(ValueError, match=f"^{expected}$"):
+                registration_decision(s, c)
+        else:
+>           assert registration_decision(s, c) == expected, case_id
+E           AssertionError: BB002
+E           assert 'REGISTERED' == 'DUES_BLOCK'
+E             
+E             - DUES_BLOCK
+E             + REGISTERED
+
+tests/test_blackbox.py:73: AssertionError
+______________________ test_registration_decision[BB003] _______________________
+
+case_id = 'BB003', kwargs = {'dues': 1000}, expected = 'DUES_BLOCK'
+
+    @pytest.mark.parametrize("case_id,kwargs,expected", DECISION_CASES, ids=[x[0] for x in DECISION_CASES])
+    def test_registration_decision(case_id, kwargs, expected):
+        s, c = scenario(**kwargs)
+        before = deepcopy((s, c))
+        if expected.startswith("Invalid"):
+            with pytest.raises(ValueError, match=f"^{expected}$"):
+                registration_decision(s, c)
+        else:
+>           assert registration_decision(s, c) == expected, case_id
+E           AssertionError: BB003
+E           assert 'REGISTERED' == 'DUES_BLOCK'
+E             
+E             - DUES_BLOCK
+E             + REGISTERED
+
+tests/test_blackbox.py:73: AssertionError
+______________________ test_registration_decision[BB006] _______________________
+
+case_id = 'BB006'
+kwargs = {'completed': ['CS101'], 'required': ['CS101', 'MATH101']}
+expected = 'PREREQUISITES_MISSING'
+
+    @pytest.mark.parametrize("case_id,kwargs,expected", DECISION_CASES, ids=[x[0] for x in DECISION_CASES])
+    def test_registration_decision(case_id, kwargs, expected):
+        s, c = scenario(**kwargs)
+        before = deepcopy((s, c))
+        if expected.startswith("Invalid"):
+            with pytest.raises(ValueError, match=f"^{expected}$"):
+                registration_decision(s, c)
+        else:
+>           assert registration_decision(s, c) == expected, case_id
+E           AssertionError: BB006
+E           assert 'REGISTERED' == 'PREREQUISITES_MISSING'
+E             
+E             - PREREQUISITES_MISSING
+E             + REGISTERED
+
+tests/test_blackbox.py:73: AssertionError
+______________________ test_registration_decision[BB010] _______________________
+
+case_id = 'BB010', kwargs = {'credits': 15}, expected = 'REGISTERED'
+
+    @pytest.mark.parametrize("case_id,kwargs,expected", DECISION_CASES, ids=[x[0] for x in DECISION_CASES])
+    def test_registration_decision(case_id, kwargs, expected):
+        s, c = scenario(**kwargs)
+        before = deepcopy((s, c))
+        if expected.startswith("Invalid"):
+            with pytest.raises(ValueError, match=f"^{expected}$"):
+                registration_decision(s, c)
+        else:
+>           assert registration_decision(s, c) == expected, case_id
+E           AssertionError: BB010
+E           assert 'CREDIT_LIMIT' == 'REGISTERED'
+E             
+E             - REGISTERED
+E             + CREDIT_LIMIT
+
+tests/test_blackbox.py:73: AssertionError
+______________________ test_registration_decision[BB011] _______________________
+
+case_id = 'BB011', kwargs = {'enrolled': 10}, expected = 'WAITLISTED'
+
+    @pytest.mark.parametrize("case_id,kwargs,expected", DECISION_CASES, ids=[x[0] for x in DECISION_CASES])
+    def test_registration_decision(case_id, kwargs, expected):
+        s, c = scenario(**kwargs)
+        before = deepcopy((s, c))
+        if expected.startswith("Invalid"):
+            with pytest.raises(ValueError, match=f"^{expected}$"):
+                registration_decision(s, c)
+        else:
+>           assert registration_decision(s, c) == expected, case_id
+E           AssertionError: BB011
+E           assert 'REGISTERED' == 'WAITLISTED'
+E             
+E             - WAITLISTED
+E             + REGISTERED
+
+tests/test_blackbox.py:73: AssertionError
+______________________ test_registration_decision[BB015] _______________________
+
+case_id = 'BB015', kwargs = {'course_credits': 1, 'credits': 17}
+expected = 'REGISTERED'
+
+    @pytest.mark.parametrize("case_id,kwargs,expected", DECISION_CASES, ids=[x[0] for x in DECISION_CASES])
+    def test_registration_decision(case_id, kwargs, expected):
+        s, c = scenario(**kwargs)
+        before = deepcopy((s, c))
+        if expected.startswith("Invalid"):
+            with pytest.raises(ValueError, match=f"^{expected}$"):
+                registration_decision(s, c)
+        else:
+>           assert registration_decision(s, c) == expected, case_id
+E           AssertionError: BB015
+E           assert 'CREDIT_LIMIT' == 'REGISTERED'
+E             
+E             - REGISTERED
+E             + CREDIT_LIMIT
+
+tests/test_blackbox.py:73: AssertionError
+______________________ test_registration_decision[BB016] _______________________
+
+case_id = 'BB016', kwargs = {'course_credits': 4, 'credits': 14}
+expected = 'REGISTERED'
+
+    @pytest.mark.parametrize("case_id,kwargs,expected", DECISION_CASES, ids=[x[0] for x in DECISION_CASES])
+    def test_registration_decision(case_id, kwargs, expected):
+        s, c = scenario(**kwargs)
+        before = deepcopy((s, c))
+        if expected.startswith("Invalid"):
+            with pytest.raises(ValueError, match=f"^{expected}$"):
+                registration_decision(s, c)
+        else:
+>           assert registration_decision(s, c) == expected, case_id
+E           AssertionError: BB016
+E           assert 'CREDIT_LIMIT' == 'REGISTERED'
+E             
+E             - REGISTERED
+E             + CREDIT_LIMIT
+
+tests/test_blackbox.py:73: AssertionError
+______________________ test_registration_decision[BB024] _______________________
+
+case_id = 'BB024', kwargs = {'capacity': 1, 'enrolled': 1}
+expected = 'WAITLISTED'
+
+    @pytest.mark.parametrize("case_id,kwargs,expected", DECISION_CASES, ids=[x[0] for x in DECISION_CASES])
+    def test_registration_decision(case_id, kwargs, expected):
+        s, c = scenario(**kwargs)
+        before = deepcopy((s, c))
+        if expected.startswith("Invalid"):
+            with pytest.raises(ValueError, match=f"^{expected}$"):
+                registration_decision(s, c)
+        else:
+>           assert registration_decision(s, c) == expected, case_id
+E           AssertionError: BB024
+E           assert 'REGISTERED' == 'WAITLISTED'
+E             
+E             - WAITLISTED
+E             + REGISTERED
+
+tests/test_blackbox.py:73: AssertionError
+______________________ test_registration_decision[BB028] _______________________
+
+case_id = 'BB028'
+kwargs = {'credits': 18, 'dues': 1, 'enrolled': 10, 'registered': ['CS201'], ...}
+expected = 'DUES_BLOCK'
+
+    @pytest.mark.parametrize("case_id,kwargs,expected", DECISION_CASES, ids=[x[0] for x in DECISION_CASES])
+    def test_registration_decision(case_id, kwargs, expected):
+        s, c = scenario(**kwargs)
+        before = deepcopy((s, c))
+        if expected.startswith("Invalid"):
+            with pytest.raises(ValueError, match=f"^{expected}$"):
+                registration_decision(s, c)
+        else:
+>           assert registration_decision(s, c) == expected, case_id
+E           AssertionError: BB028
+E           assert 'ALREADY_REGISTERED' == 'DUES_BLOCK'
+E             
+E             - DUES_BLOCK
+E             + ALREADY_REGISTERED
+
+tests/test_blackbox.py:73: AssertionError
+______________________ test_registration_decision[BB032] _______________________
+
+case_id = 'BB032', kwargs = {'credits': 15, 'enrolled': 10}
+expected = 'WAITLISTED'
+
+    @pytest.mark.parametrize("case_id,kwargs,expected", DECISION_CASES, ids=[x[0] for x in DECISION_CASES])
+    def test_registration_decision(case_id, kwargs, expected):
+        s, c = scenario(**kwargs)
+        before = deepcopy((s, c))
+        if expected.startswith("Invalid"):
+            with pytest.raises(ValueError, match=f"^{expected}$"):
+                registration_decision(s, c)
+        else:
+>           assert registration_decision(s, c) == expected, case_id
+E           AssertionError: BB032
+E           assert 'CREDIT_LIMIT' == 'WAITLISTED'
+E             
+E             - WAITLISTED
+E             + CREDIT_LIMIT
+
+tests/test_blackbox.py:73: AssertionError
+___________________________ test_credit_limit[BB038] ___________________________
+
+case_id = 'BB038', current = 14, new = 4, expected = True
+
+    @pytest.mark.parametrize("case_id,current,new,expected", [
+        ("BB037", 0, 1, True), ("BB038", 14, 4, True),
+        ("BB039", 15, 3, True), ("BB040", 16, 3, False),
+        ("BB041", 18, 1, False), ("BB042", -1, 1, "Invalid current credits"),
+        ("BB043", 19, 1, "Invalid current credits"),
+        ("BB044", 0, 0, "Invalid course credits"),
+        ("BB045", 0, 5, "Invalid course credits"),
+        ("BB046", -1, 0, "Invalid current credits"),
+    ], ids=[f"BB{i:03d}" for i in range(37,47)])
+    def test_credit_limit(case_id, current, new, expected):
+        if isinstance(expected, str):
+            with pytest.raises(ValueError, match=f"^{expected}$"):
+                check_credit_limit(current, new)
+        else:
+>           assert check_credit_limit(current, new) is expected, case_id
+E           AssertionError: BB038
+E           assert False is True
+E            +  where False = check_credit_limit(14, 4)
+
+tests/test_blackbox.py:91: AssertionError
+___________________________ test_credit_limit[BB039] ___________________________
+
+case_id = 'BB039', current = 15, new = 3, expected = True
+
+    @pytest.mark.parametrize("case_id,current,new,expected", [
+        ("BB037", 0, 1, True), ("BB038", 14, 4, True),
+        ("BB039", 15, 3, True), ("BB040", 16, 3, False),
+        ("BB041", 18, 1, False), ("BB042", -1, 1, "Invalid current credits"),
+        ("BB043", 19, 1, "Invalid current credits"),
+        ("BB044", 0, 0, "Invalid course credits"),
+        ("BB045", 0, 5, "Invalid course credits"),
+        ("BB046", -1, 0, "Invalid current credits"),
+    ], ids=[f"BB{i:03d}" for i in range(37,47)])
+    def test_credit_limit(case_id, current, new, expected):
+        if isinstance(expected, str):
+            with pytest.raises(ValueError, match=f"^{expected}$"):
+                check_credit_limit(current, new)
+        else:
+>           assert check_credit_limit(current, new) is expected, case_id
+E           AssertionError: BB039
+E           assert False is True
+E            +  where False = check_credit_limit(15, 3)
+
+tests/test_blackbox.py:91: AssertionError
+__________________________ test_prerequisites[BB049] ___________________________
+
+case_id = 'BB049', completed = ('CS101',), required = ('CS101', 'MATH101')
+expected = False
+
+    @pytest.mark.parametrize("case_id,completed,required,expected", [
+        ("BB047", (), (), True),
+        ("BB048", (), ("CS101",), False),
+        ("BB049", ("CS101",), ("CS101", "MATH101"), False),
+        ("BB050", ("CS101", "MATH101"), ("CS101", "MATH101"), True),
+        ("BB051", ("CS101",), ("CS101",), True),
+    ], ids=[f"BB{i:03d}" for i in range(47,52)])
+    def test_prerequisites(case_id, completed, required, expected):
+>       assert prerequisites_satisfied(set(completed), set(required)) is expected, case_id
+E       AssertionError: BB049
+E       assert True is False
+E        +  where True = prerequisites_satisfied({'CS101'}, {'CS101', 'MATH101'})
+E        +    where {'CS101'} = set(('CS101',))
+E        +    and   {'CS101', 'MATH101'} = set(('CS101', 'MATH101'))
+
+tests/test_blackbox.py:102: AssertionError
+__________________ test_BB053_waitlist_updates_only_waitlist ___________________
+
+    def test_BB053_waitlist_updates_only_waitlist():
+        s, c = scenario(enrolled=10)
+        before = (s.current_credits, set(s.registered_courses), c.enrolled)
+>       assert register_course(s, c) == "WAITLISTED"
+E       AssertionError: assert 'REGISTERED' == 'WAITLISTED'
+E         
+E         - WAITLISTED
+E         + REGISTERED
+
+tests/test_blackbox.py:117: AssertionError
+_______________ test_BB054_waitlist_does_not_insert_duplicate_id _______________
+
+    def test_BB054_waitlist_does_not_insert_duplicate_id():
+        s, c = scenario(enrolled=10, waitlist=["S001"])
+        before = deepcopy((s, c))
+>       assert register_course(s, c) == "WAITLISTED"
+E       AssertionError: assert 'REGISTERED' == 'WAITLISTED'
+E         
+E         - WAITLISTED
+E         + REGISTERED
+
+tests/test_blackbox.py:125: AssertionError
+____________ test_unsuccessful_registration_preserves_state[BB055] _____________
+
+case_id = 'BB055', kwargs = {'dues': 1}, status = 'DUES_BLOCK'
+
+    @pytest.mark.parametrize("case_id,kwargs,status", [
+        ("BB055", {"dues": 1}, "DUES_BLOCK"),
+        ("BB056", {"registered": ["CS201"]}, "ALREADY_REGISTERED"),
+        ("BB057", {"required": ["X"]}, "PREREQUISITES_MISSING"),
+        ("BB058", {"credits": 18}, "CREDIT_LIMIT"),
+    ], ids=[f"BB{i:03d}" for i in range(55,59)])
+    def test_unsuccessful_registration_preserves_state(case_id, kwargs, status):
+        s, c = scenario(**kwargs)
+        before = deepcopy((s, c))
+>       assert register_course(s, c) == status, case_id
+E       AssertionError: BB055
+E       assert 'REGISTERED' == 'DUES_BLOCK'
+E         
+E         - DUES_BLOCK
+E         + REGISTERED
+
+tests/test_blackbox.py:138: AssertionError
+_______________ test_BB059_withdraw_decrements_course_enrollment _______________
+
+    def test_BB059_withdraw_decrements_course_enrollment():
+        s, c = scenario(credits=9, enrolled=4, registered=["CS201"])
+        assert withdraw_course(s, c) is True
+        assert s.current_credits == 6
+        assert s.registered_courses == set()
+>       assert c.enrolled == 3
+E       AssertionError: assert 4 == 3
+E        +  where 4 = Course(code='CS201', credit_hours=3, capacity=10, enrolled=4, prerequisites=set(), waitlist=[]).enrolled
+
+tests/test_blackbox.py:147: AssertionError
+_________________ test_BB061_register_then_withdraw_round_trip _________________
+
+    def test_BB061_register_then_withdraw_round_trip():
+        s, c = scenario(credits=8, enrolled=2)
+        baseline = deepcopy((s, c))
+        assert register_course(s, c) == "REGISTERED"
+        assert withdraw_course(s, c) is True
+>       assert (s, c) == baseline
+E       AssertionError: assert (Student(stud... waitlist=[])) == (Student(stud... waitlist=[]))
+E         
+E         At index 1 diff: Course(code='CS201', credit_hours=3, capacity=10, enrolled=3, prerequisites=set(), waitlist=[]) != Course(code='CS201', credit_hours=3, capacity=10, enrolled=2, prerequisites=set(), waitlist=[])
+E         
+E         Full diff:
+E           (
+E               Student(
+E                   student_id='S001',
+E                   completed_courses=set(),
+E                   current_credits=8,
+E                   outstanding_dues=0,
+E                   registered_courses=set(),
+E               ),
+E               Course(
+E                   code='CS201',
+E                   credit_hours=3,
+E                   capacity=10,
+E         -         enrolled=2,
+E         ?                  ^
+E         +         enrolled=3,
+E         ?                  ^
+E                   prerequisites=set(),
+E                   waitlist=[],
+E               ),
+E           )
+
+tests/test_blackbox.py:162: AssertionError
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.13.5-final-0 ________________
+
+Name              Stmts   Miss Branch BrPart  Cover   Missing
+-------------------------------------------------------------
+registration.py      57      2     26      2    95%   59, 71
+-------------------------------------------------------------
+TOTAL                57      2     26      2    95%
+Coverage JSON written to file docs/evidence/initial_blackbox_coverage.json
+=========================== short test summary info ============================
+FAILED tests/test_blackbox.py::test_registration_decision[BB002] - AssertionError: BB002
+assert 'REGISTERED' == 'DUES_BLOCK'
+  
+  - DUES_BLOCK
+  + REGISTERED
+FAILED tests/test_blackbox.py::test_registration_decision[BB003] - AssertionError: BB003
+assert 'REGISTERED' == 'DUES_BLOCK'
+  
+  - DUES_BLOCK
+  + REGISTERED
+FAILED tests/test_blackbox.py::test_registration_decision[BB006] - AssertionError: BB006
+assert 'REGISTERED' == 'PREREQUISITES_MISSING'
+  
+  - PREREQUISITES_MISSING
+  + REGISTERED
+FAILED tests/test_blackbox.py::test_registration_decision[BB010] - AssertionError: BB010
+assert 'CREDIT_LIMIT' == 'REGISTERED'
+  
+  - REGISTERED
+  + CREDIT_LIMIT
+FAILED tests/test_blackbox.py::test_registration_decision[BB011] - AssertionError: BB011
+assert 'REGISTERED' == 'WAITLISTED'
+  
+  - WAITLISTED
+  + REGISTERED
+FAILED tests/test_blackbox.py::test_registration_decision[BB015] - AssertionError: BB015
+assert 'CREDIT_LIMIT' == 'REGISTERED'
+  
+  - REGISTERED
+  + CREDIT_LIMIT
+FAILED tests/test_blackbox.py::test_registration_decision[BB016] - AssertionError: BB016
+assert 'CREDIT_LIMIT' == 'REGISTERED'
+  
+  - REGISTERED
+  + CREDIT_LIMIT
+FAILED tests/test_blackbox.py::test_registration_decision[BB024] - AssertionError: BB024
+assert 'REGISTERED' == 'WAITLISTED'
+  
+  - WAITLISTED
+  + REGISTERED
+FAILED tests/test_blackbox.py::test_registration_decision[BB028] - AssertionError: BB028
+assert 'ALREADY_REGISTERED' == 'DUES_BLOCK'
+  
+  - DUES_BLOCK
+  + ALREADY_REGISTERED
+FAILED tests/test_blackbox.py::test_registration_decision[BB032] - AssertionError: BB032
+assert 'CREDIT_LIMIT' == 'WAITLISTED'
+  
+  - WAITLISTED
+  + CREDIT_LIMIT
+FAILED tests/test_blackbox.py::test_credit_limit[BB038] - AssertionError: BB038
+assert False is True
+ +  where False = check_credit_limit(14, 4)
+FAILED tests/test_blackbox.py::test_credit_limit[BB039] - AssertionError: BB039
+assert False is True
+ +  where False = check_credit_limit(15, 3)
+FAILED tests/test_blackbox.py::test_prerequisites[BB049] - AssertionError: BB049
+assert True is False
+ +  where True = prerequisites_satisfied({'CS101'}, {'CS101', 'MATH101'})
+ +    where {'CS101'} = set(('CS101',))
+ +    and   {'CS101', 'MATH101'} = set(('CS101', 'MATH101'))
+FAILED tests/test_blackbox.py::test_BB053_waitlist_updates_only_waitlist - AssertionError: assert 'REGISTERED' == 'WAITLISTED'
+  
+  - WAITLISTED
+  + REGISTERED
+FAILED tests/test_blackbox.py::test_BB054_waitlist_does_not_insert_duplicate_id - AssertionError: assert 'REGISTERED' == 'WAITLISTED'
+  
+  - WAITLISTED
+  + REGISTERED
+FAILED tests/test_blackbox.py::test_unsuccessful_registration_preserves_state[BB055] - AssertionError: BB055
+assert 'REGISTERED' == 'DUES_BLOCK'
+  
+  - DUES_BLOCK
+  + REGISTERED
+FAILED tests/test_blackbox.py::test_BB059_withdraw_decrements_course_enrollment - AssertionError: assert 4 == 3
+ +  where 4 = Course(code='CS201', credit_hours=3, capacity=10, enrolled=4, prerequisites=set(), waitlist=[]).enrolled
+FAILED tests/test_blackbox.py::test_BB061_register_then_withdraw_round_trip - AssertionError: assert (Student(stud... waitlist=[])) == (Student(stud... waitlist=[]))
+  
+  At index 1 diff: Course(code='CS201', credit_hours=3, capacity=10, enrolled=3, prerequisites=set(), waitlist=[]) != Course(code='CS201', credit_hours=3, capacity=10, enrolled=2, prerequisites=set(), waitlist=[])
+  
+  Full diff:
+    (
+        Student(
+            student_id='S001',
+            completed_courses=set(),
+            current_credits=8,
+            outstanding_dues=0,
+            registered_courses=set(),
+        ),
+        Course(
+            code='CS201',
+            credit_hours=3,
+            capacity=10,
+  -         enrolled=2,
+  ?                  ^
+  +         enrolled=3,
+  ?                  ^
+            prerequisites=set(),
+            waitlist=[],
+        ),
+    )
+18 failed, 44 passed in 0.28s
