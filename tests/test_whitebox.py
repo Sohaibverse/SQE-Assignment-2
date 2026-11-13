@@ -67,8 +67,9 @@ def test_WB009_mcdc_first_operand_true_second_true():
 
 
 def test_WB010_mcdc_first_operand_false_second_not_evaluated():
-    s, c = fixture(full=False)
-    assert register_course(s, c) == "REGISTERED"
+    # DUES_BLOCK reaches the elif; unlike REGISTERED it does not bypass it.
+    s, c = fixture(dues=1)
+    assert register_course(s, c) == "DUES_BLOCK"
     assert c.waitlist == []
 
 
